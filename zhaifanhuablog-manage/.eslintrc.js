@@ -12,7 +12,7 @@ export default defineConfig({
     },
     env: {
         browser: true,
-        es2021: true,
+        es6: true,
         node: true,
         // 解决 defineProps and defineEmits generate no-undef warnings
         'vue/setup-compiler-macros': true,

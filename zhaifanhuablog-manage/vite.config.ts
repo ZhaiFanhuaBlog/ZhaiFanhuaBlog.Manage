@@ -8,7 +8,6 @@ import { NaiveUiResolver } from "unplugin-vue-components/resolvers";
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }: ConfigEnv) => {
   const env = loadEnv(mode, process.cwd());
-  console.log(env);
   return {
     resolve: {
       alias: {
