@@ -7,6 +7,22 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    GradientText: typeof import('./../components/GradientText/src/GradientText.vue')['default']
     HelloWorld: typeof import('./../components/HelloWorld.vue')['default']
+    NAutoComplete: typeof import('naive-ui')['NAutoComplete']
+    NButton: typeof import('naive-ui')['NButton']
+    NCard: typeof import('naive-ui')['NCard']
+    NConfigProvider: typeof import('naive-ui')['NConfigProvider']
+    NCountdown: typeof import('naive-ui')['NCountdown']
+    NDatePicker: typeof import('naive-ui')['NDatePicker']
+    NDropdown: typeof import('naive-ui')['NDropdown']
+    NGlobalStyle: typeof import('naive-ui')['NGlobalStyle']
+    NIcon: typeof import('naive-ui')['NIcon']
+    NInput: typeof import('naive-ui')['NInput']
+    NSelect: typeof import('naive-ui')['NSelect']
+    NSpace: typeof import('naive-ui')['NSpace']
+    NSwitch: typeof import('naive-ui')['NSwitch']
+    NTag: typeof import('naive-ui')['NTag']
+    NTimePicker: typeof import('naive-ui')['NTimePicker']
   }
 }

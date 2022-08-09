@@ -1,31 +1,84 @@
-<script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+  <n-space>
+    <n-button strong secondary>
+      Default
+    </n-button>
+    <n-button strong secondary type="tertiary">
+      Tertiary
+    </n-button>
+    <n-button strong secondary type="primary">
+      Primary
+    </n-button>
+    <n-button strong secondary type="info">
+      Info
+    </n-button>
+    <n-button strong secondary type="success">
+      Success
+    </n-button>
+    <n-button strong secondary type="warning">
+      Warning
+    </n-button>
+    <n-button strong secondary type="error">
+      Error
+    </n-button>
+    <n-button strong secondary round>
+      Default
+    </n-button>
+    <n-button strong secondary round type="primary">
+      Primary
+    </n-button>
+    <n-button strong secondary round type="info">
+      Info
+    </n-button>
+    <n-button strong secondary round type="success">
+      Success
+    </n-button>
+    <n-button strong secondary round type="warning">
+      Warning
+    </n-button>
+    <n-button strong secondary round type="error">
+      Error
+    </n-button>
+    <n-button strong secondary circle>
+      <template #icon>
+        <n-icon><cash-icon /></n-icon>
+      </template>
+    </n-button>
+    <n-button strong secondary circle type="primary">
+      <template #icon>
+        <n-icon><cash-icon /></n-icon>
+      </template>
+    </n-button>
+    <n-button strong secondary circle type="info">
+      <template #icon>
+        <n-icon><cash-icon /></n-icon>
+      </template>
+    </n-button>
+    <n-button strong secondary circle type="success">
+      <template #icon>
+        <n-icon><cash-icon /></n-icon>
+      </template>
+    </n-button>
+    <n-button strong secondary circle type="warning">
+      <template #icon>
+        <n-icon><cash-icon /></n-icon>
+      </template>
+    </n-button>
+    <n-button strong secondary circle type="error">
+      <template #icon>
+        <n-icon><cash-icon /></n-icon>
+      </template>
+    </n-button>
+  </n-space>
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>
+<script lang="ts">
+import { CashOutline as CashIcon } from '@vicons/ionicons5'
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  components: {
+    CashIcon
+  }
+})
+</script>
