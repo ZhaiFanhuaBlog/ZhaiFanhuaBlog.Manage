@@ -1,6 +1,6 @@
 module.exports = {
     // 结尾分号
-    semi: false,
+    semi: true,
     // 单引号
     singleQuote: true,
     // 一行80字符
