@@ -1,9 +1,10 @@
-import { defineConfig, ConfigEnv } from "vite";
+import { defineConfig, ConfigEnv, loadEnv } from "vite";
 import vue from "@vitejs/plugin-vue";
 import { resolve } from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }: ConfigEnv) => {
+  const env = loadEnv(mode, process.cwd());
   return {
     resolve: {
       alias: {
@@ -15,5 +16,14 @@ export default defineConfig(({ mode }: ConfigEnv) => {
 
     /* more config */
     plugins: [vue()],
+    server: {
+      proxy: {
+        "/api": {
+          target: env.VITE_APP_API_BASE_URL,
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/api/, ""),
+        },
+      },
+    },
   };
 });
