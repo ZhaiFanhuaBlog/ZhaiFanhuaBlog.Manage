@@ -4,10 +4,18 @@ import { resolve } from 'path'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
+import { wrapperEnv } from './build/utils'
+import { createProxy } from './build/vite/proxy'
 
-// https://vitejs.dev/config/
-export default defineConfig(({ mode }: ConfigEnv) => {
-  const env = loadEnv(mode, process.cwd())
+// Vite配置
+export default defineConfig(({ command, mode }: ConfigEnv) => {
+  // 根据当前工作目录中的 `mode` 加载 .env 文件
+  const root = process.cwd()
+  const env = loadEnv(mode, root)
+  // 获取环境
+  const viteEnv = wrapperEnv(env)
+  const { VITE_PORT, VITE_PUBLIC_PATH, VITE_PROXY, VITE_DROP_CONSOLE } = viteEnv
+  const isBuild = command === 'build'
   return {
     resolve: {
       alias: {
@@ -17,7 +25,7 @@ export default defineConfig(({ mode }: ConfigEnv) => {
       extensions: ['.js', '.json', '.ts', '.vue'],
     },
 
-    /* more config */
+    // 其他配置
     plugins: [
       vue({
         reactivityTransform: true,
@@ -33,7 +41,7 @@ export default defineConfig(({ mode }: ConfigEnv) => {
           },
         ],
         // 调整自动引入的文件位置
-        dts: 'src/type/auto-import.d.ts',
+        dts: 'src/types/auto-import.d.ts',
         // 解决自动引入eslint报错问题 需要在eslintrc的extend选项中引入
         eslintrc: {
           enabled: true,
@@ -47,17 +55,19 @@ export default defineConfig(({ mode }: ConfigEnv) => {
           // 需要自动导入的组件
           NaiveUiResolver(),
         ],
-        dts: 'src/type/components.d.ts',
+        dts: 'src/types/components.d.ts',
       }),
     ],
+    // 服务器配置
     server: {
-      proxy: {
-        '/api': {
-          target: env.VITE_APP_API_BASE_URL,
-          changeOrigin: true,
-          rewrite: path => path.replace(/^\/api/, ''),
-        },
-      },
+      // 指定服务器应该监听哪个 IP 地址。 如果将此设置为 0.0.0.0 或者 true 将监听所有地址，包括局域网和公网地址。也可以通过 CLI 使用 --host 0.0.0.0 或 --host 来设置。
+      host: '0.0.0.0',
+      // 指定开发服务器端口。注意：如果端口已经被使用，Vite 会自动尝试下一个可用的端口，所以这可能不是开发服务器最终监听的实际端口。
+      port: VITE_PORT,
+      // 设为 true 时若端口已被占用则会直接退出，而不是尝试下一个可用端口。
+      strictPort: true,
+      // 为开发服务器配置自定义代理规则。
+      proxy: createProxy(VITE_PROXY),
     },
   }
 })

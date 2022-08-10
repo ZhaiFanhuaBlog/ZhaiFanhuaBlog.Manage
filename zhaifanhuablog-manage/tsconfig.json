@@ -1,16 +1,28 @@
 {
   "compilerOptions": {
+    // 将代码编译为最新版本的 JS
     "target": "ESNext",
+    // 使用 Object.defineProperty 定义 class 中的属性，而非使用 obj.key = value 的形式定义属性
     "useDefineForClassFields": true,
+    // 使用 ES Module 格式打包编译后的文件
     "module": "ESNext",
+    // 使用 Node 的模块解析策略
     "moduleResolution": "Node",
+    // 启用所用严格的类型检查
     "strict": true,
+    // 保留原始的 JSX 代码，不进行编译
     "jsx": "preserve",
+    // 生成 sourceMap 文件
     "sourceMap": true,
+    // 允许引入 JSON 文件
     "resolveJsonModule": true,
+    // 该属性要求所有文件都是 ES Module 模块
     "isolatedModules": true,
+    // 允许使用 import 引入使用 export = 导出的内容
     "esModuleInterop": true,
+    // 引入 ES 最新特性和 DOM 接口的类型定义
     "lib": ["ESNext", "DOM"],
+    // 跳过对 .d.ts 文件的类型检查
     "skipLibCheck": true,
     // 用于设置解析非相对模块名称的基本目录，相对模块不会受到baseUrl的影响
     "baseUrl": ".",
@@ -19,6 +31,13 @@
       "/@/*": ["src/*"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "types/**/*.d.ts",
+    "types/**/*.ts"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
