@@ -89,7 +89,7 @@ export function isEmpty<T = unknown>(val: T): val is T {
   return false
 }
 
-export function ifNull(val: any, def = ''): val is number | boolean | string {
+export function ifNull(val: any, def = ''): val is null | string {
   return isNullOrWhitespace(val) ? def : val
 }
 
