@@ -1,21 +1,22 @@
-import { defineConfig, ConfigEnv, loadEnv } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import { resolve } from 'path'
-import AutoImport from 'unplugin-auto-import/vite'
-import Components from 'unplugin-vue-components/vite'
-import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
-import { wrapperEnv } from './build/utils'
-import { createProxy } from './build/vite/proxy'
+import { defineConfig, ConfigEnv, loadEnv, UserConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
+import { resolve } from 'path';
+import AutoImport from 'unplugin-auto-import/vite';
+import Components from 'unplugin-vue-components/vite';
+import { NaiveUiResolver } from 'unplugin-vue-components/resolvers';
+import { wrapperEnv } from './build/utils';
+import { OUTPUT_DIR } from './build/constant';
+import { createProxy } from './build/vite/proxy';
 
 // Vite配置
-export default defineConfig(({ command, mode }: ConfigEnv) => {
+export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
   // 根据当前工作目录中的 `mode` 加载 .env 文件
-  const root = process.cwd()
-  const env = loadEnv(mode, root)
+  const root = process.cwd();
+  const env = loadEnv(mode, root);
   // 获取环境
-  const viteEnv = wrapperEnv(env)
-  const { VITE_PORT, VITE_PUBLIC_PATH, VITE_PROXY, VITE_DROP_CONSOLE } = viteEnv
-  const isBuild = command === 'build'
+  const viteEnv = wrapperEnv(env);
+  const { VITE_PORT, VITE_PUBLIC_PATH, VITE_PROXY, VITE_DROP_CONSOLE } = viteEnv;
+  const isBuild = command === 'build';
   return {
     resolve: {
       alias: {
@@ -24,7 +25,9 @@ export default defineConfig(({ command, mode }: ConfigEnv) => {
       // 使用路径别名时想要省略的后缀名，可以自己增减
       extensions: ['.js', '.json', '.ts', '.vue'],
     },
-
+    build: {
+      outDir: OUTPUT_DIR,
+    },
     // 其他配置
     plugins: [
       vue({
@@ -69,5 +72,5 @@ export default defineConfig(({ command, mode }: ConfigEnv) => {
       // 为开发服务器配置自定义代理规则。从.env加载代理配置
       proxy: createProxy(VITE_PROXY),
     },
-  }
-})
+  };
+});
