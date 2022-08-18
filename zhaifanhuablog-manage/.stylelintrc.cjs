@@ -3,7 +3,15 @@ module.exports = {
   // 插件
   plugins: ['stylelint-order'],
   // 扩展
-  extends: ['stylelint-config-standard', 'stylelint-config-prettier'],
+  extends: ['stylelint-config-standard', 'stylelint-config-prettier', 'stylelint-config-standard-scss', 'stylelint-config-recommended-vue'],
+  // Unknown word (CssSyntaxError) 错误,这个问题主要是因为 stylelint 升级到 14 大版本造成的,解决办法是安装 stylelint-config-recommended-scss 插件
+  customSyntax: 'postcss-html',
+  overrides: [
+    {
+      files: ['**/*.{scss,css,sass}'], // css 相关文件由 postcss-scss 处理
+      customSyntax: 'postcss-scss'
+    },
+  ],
   // 自定义规则
   rules: {
     // 禁止使用未知的伪类选择器
