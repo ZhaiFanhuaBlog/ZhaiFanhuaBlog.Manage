@@ -26,8 +26,8 @@
     "lint:prettier": "prettier --write  \"src/**/*.{js,json,tsx,css,less,scss,vue,html,md}\"",
     "lint:stylelint": "stylelint --cache --fix \"**/*.{vue,less,postcss,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
     "test:unit": "jest",
-    "test:gzip": "yarn -v",
-    "test:br": "yarn -v",
+    "test:gzip": "http-server dist --cors --gzip -c-1",
+    "test:br": "http-server dist --cors --brotli -c-1",
     "reinstall": "rimraf yarn.lock && rimraf package.lock.json && rimraf node_modules && npm run bootstrap",
     "install:husky": "yarn -v",
     "gen:icon": "yarn -v"
@@ -51,6 +51,7 @@
     "eslint-define-config": "^1.6.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^9.3.0",
+    "http-server": "^14.1.1",
     "naive-ui": "^2.32.1",
     "postcss": "^8.4.16",
     "postcss-html": "^1.5.0",
