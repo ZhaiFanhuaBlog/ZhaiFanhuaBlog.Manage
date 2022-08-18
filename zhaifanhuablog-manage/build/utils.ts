@@ -8,7 +8,7 @@ export function isDev(mode: string): boolean {
 }
 
 /**
- * 是否生成环境
+ * 是否生产环境
  * @param mode
  * @returns
  */
