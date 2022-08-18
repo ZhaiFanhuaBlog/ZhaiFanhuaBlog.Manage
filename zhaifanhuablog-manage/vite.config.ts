@@ -61,7 +61,7 @@ export default defineConfig(({ command, mode }: ConfigEnv) => {
     // 服务器配置
     server: {
       // 指定服务器应该监听哪个 IP 地址。 如果将此设置为 0.0.0.0 或者 true 将监听所有地址，包括局域网和公网地址。也可以通过 CLI 使用 --host 0.0.0.0 或 --host 来设置
-      host: '0.0.0.0',
+      host: true,
       // 指定开发服务器端口。注意：如果端口已经被使用，Vite 会自动尝试下一个可用的端口，所以这可能不是开发服务器最终监听的实际端口
       port: VITE_PORT,
       // 设为 true 时若端口已被占用则会直接退出，而不是尝试下一个可用端口
