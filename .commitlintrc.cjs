@@ -2,9 +2,7 @@ module.exports = {
   // 忽略包含init的提交消息
   ignores: [(commit) => commit.includes('init')],
   // 按照传统消息格式来验证
-  extends: ['@commitlint/config-conventional', '@commitlint/cz-commitlint'],
-  // 自定义解析器
-  // https://commitlint.js.org/#/reference-configuration?id=parser-presets
+  extends: ['@commitlint/config-conventional', '@commitlint/cz-commitlint', 'git-commit-emoji'],
   parserPreset: {
     parserOpts: {
       headerPattern: /^(\w*|[\u4e00-\u9fa5]*)(?:[\(\（](.*)[\)\）])?[\:\：] (.*)/,
@@ -39,9 +37,9 @@ module.exports = {
     // header的最大长度
     'header-max-length': [2, 'always', 108],
     // subject为空
-    'subject-empty': [2, 'never'],
+    'subject-empty': [1, 'never'],
     // type为空
-    'type-empty': [2, 'never'],
+    'type-empty': [1, 'never'],
   },
   prompt: {
     settings: {},

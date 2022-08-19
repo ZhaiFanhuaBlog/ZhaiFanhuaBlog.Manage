@@ -49,9 +49,10 @@
     "@vue/eslint-config-typescript": "^11.0.0",
     "autoprefixer": "^10.4.8",
     "commitizen": "^4.2.5",
-    "conventional-changelog": "3.1.25",
+    "commitlint-config-git-commit-emoji": "^1.0.0",
     "conventional-changelog-cli": "^2.2.2",
-    "cz-conventional-changelog": "^3.3.0",
+    "cz-conventional-changelog": "3.3.0",
+    "cz-customizable": "^6.9.1",
     "eslint": "^8.21.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^9.3.0",
@@ -78,7 +79,7 @@
     "unplugin-vue-components": "^0.22.3",
     "vfonts": "^0.0.3",
     "vite": "^3.0.0",
-    "vue-tsc": "^0.38.4"
+    "vue-tsc": "^0.40.1"
   },
   "config": {
     "commitizen": {
