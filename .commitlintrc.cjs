@@ -37,9 +37,9 @@ module.exports = {
     // header的最大长度
     'header-max-length': [2, 'always', 108],
     // subject为空
-    'subject-empty': [1, 'never'],
+    'subject-empty': [0, 'never'],
     // type为空
-    'type-empty': [1, 'never'],
+    'type-empty': [0, 'never'],
   },
   prompt: {
     settings: {},
