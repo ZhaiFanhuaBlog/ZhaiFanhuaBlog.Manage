@@ -47,16 +47,8 @@
       "/#/*": ["types/*"]
     }
   },
-  // 指定一个匹配列表（属于自动指定该路径下的所有ts相关文件）
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.d.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
-    "types/**/*.d.ts",
-    "types/**/*.ts",
-    "mock/**/*.ts"
-  ],
-  // 指定一个排除列表（include的反向操作）
+  // 指定一个匹配列表(属于自动指定该路径下的所有ts相关文件)
+  "include": ["src/**/*", "mock/**/*"],
+  // 指定一个排除列表(include的反向操作)
   "exclude": ["node_modules", "dist", "**/*.js"]
 }

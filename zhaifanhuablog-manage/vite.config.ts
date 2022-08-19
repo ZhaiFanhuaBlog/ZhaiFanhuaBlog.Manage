@@ -21,6 +21,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
     resolve: {
       alias: {
         '/@': resolve(__dirname, 'src'),
+        '/#': resolve(__dirname, 'types'),
       },
       // 使用路径别名时想要省略的后缀名，可以自己增减
       extensions: ['.js', '.json', '.ts', '.vue'],
@@ -44,7 +45,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
           },
         ],
         // 调整自动引入的文件位置
-        dts: 'src/types/auto-import.d.ts',
+        dts: 'types/auto-import.d.ts',
         // 解决自动引入eslint报错问题 需要在eslintrc的extend选项中引入
         eslintrc: {
           enabled: true,
@@ -58,7 +59,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
           // 需要自动导入的组件
           NaiveUiResolver(),
         ],
-        dts: 'src/types/components.d.ts',
+        dts: 'types/components.d.ts',
       }),
     ],
     // 服务器配置

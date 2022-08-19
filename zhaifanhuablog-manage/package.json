@@ -3,12 +3,6 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "eslintConfig": {
-    "env": {
-      "browser": true,
-      "node": true
-    }
-  },
   "scripts": {
     "bootstrap": "yarn install",
     "serve": "npx --max_old_space_size=4096 vite",
@@ -22,8 +16,8 @@
     "log": "yarn -v",
     "clean:cache": "rimraf node_modules/.cache/ && rimraf node_modules/.vite",
     "clean:lib": "rimraf node_modules",
-    "lint:eslint": "eslint --cache --max-warnings 0  \"{src,build,mock}/**/*.{vue,ts,tsx}\" --fix",
-    "lint:prettier": "prettier --write  \"src/**/*.{js,json,tsx,css,less,scss,vue,html,md}\"",
+    "lint:eslint": "eslint --cache  --fix --max-warnings 0  \"{src,build,mock}/**/*.{vue,ts,tsx}\" --cache --cache-location node_modules/.cache/eslint/",
+    "lint:prettier": "prettier --write  \"src/**/*.{js,json,tsx,css,less,scss,vue,html,md}\"  --cache --cache-location node_modules/.cache/prettier/",
     "lint:stylelint": "stylelint --cache --fix \"**/*.{vue,less,postcss,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
     "test:unit": "jest",
     "test:gzip": "http-server dist --cors --gzip -c-1",
@@ -48,7 +42,6 @@
     "@vue/eslint-config-typescript": "^11.0.0",
     "autoprefixer": "^10.4.8",
     "eslint": "^8.21.0",
-    "eslint-define-config": "^1.6.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^9.3.0",
     "http-server": "^14.1.1",

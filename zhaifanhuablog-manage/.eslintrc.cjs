@@ -1,3 +1,4 @@
+// https://eslint.org/docs/latest/user-guide/configuring/configuration-files
 module.exports = {
   root: true,
   env: {
@@ -20,6 +21,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
   ],
+  // https://eslint.org/docs/latest/rules/
   rules: {
     'vue/script-setup-uses-vars': 'error',
     '@typescript-eslint/ban-ts-ignore': 'off',

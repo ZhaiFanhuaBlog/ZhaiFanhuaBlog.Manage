@@ -10,6 +10,7 @@
     "zhucy.project-tree",
     "eamodio.gitlens",
     "ms-vscode.powershell",
-    "vscode-icons-team.vscode-icons"
+    "vscode-icons-team.vscode-icons",
+    "stylelint.vscode-stylelint"
   ]
 }
