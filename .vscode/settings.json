@@ -4,5 +4,14 @@
     "source.fixAll.eslint": true
   },
   "editor.formatOnSave": true,
-  "cSpell.words": ["brotli", "ionicons", "pinia", "stylelint", "unplugin", "vfonts", "vicons"]
+  "cSpell.words": [
+    "brotli",
+    "ionicons",
+    "lintstagedrc",
+    "pinia",
+    "stylelint",
+    "unplugin",
+    "vfonts",
+    "vicons"
+  ]
 }
