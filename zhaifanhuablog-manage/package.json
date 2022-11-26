@@ -19,12 +19,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/zhaifanhua/ZhaiFanhuaBlog.Manage"
+    "url": "https://github.com/ZhaiFanhuaBlog/ZhaiFanhuaBlog.Manage"
   },
   "bugs": {
-    "url": "https://github.com/zhaifanhua/ZhaiFanhuaBlog.Manage/issues"
+    "url": "https://github.com/ZhaiFanhuaBlog/ZhaiFanhuaBlog.Manage/issues"
   },
-  "homepage": "https://github.com/zhaifanhua/ZhaiFanhuaBlog.Manage#readme",
+  "homepage": "https://github.com/ZhaiFanhuaBlog/ZhaiFanhuaBlog.Manage#readme",
   "publishConfig": {
     "@zhaifanhua:registry": "https://npm.pkg.github.com"
   },
@@ -39,8 +39,6 @@
     "type:check": "vue-tsc --noEmit --skipLibCheck",
     "preview": "npm run build && vite preview",
     "preview:dist": "vite preview",
-    "clean:cache": "rimraf node_modules/.cache/ && rimraf node_modules/.vite",
-    "clean:lib": "rimraf node_modules",
     "lint:eslint": "eslint --cache --max-warnings 0  \"{src,mock}/**/*.{vue,ts,tsx}\" --fix --cache-location node_modules/.cache/eslint/",
     "lint:prettier": "prettier --write  \"src/**/*.{js,json,tsx,css,less,scss,vue,html,md}\"",
     "lint:stylelint": "stylelint --cache --fix \"**/*.{vue,less,postcss,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
@@ -48,6 +46,8 @@
     "test:unit": "jest",
     "test:gzip": "npx http-server dist --cors --gzip -c-1",
     "test:br": "npx http-server dist --cors --brotli -c-1",
+    "clean:cache": "rimraf node_modules/.cache/ && rimraf node_modules/.vite",
+    "clean:lib": "rimraf node_modules",
     "reinstall": "rimraf yarn.lock && rimraf package.lock.json && rimraf node_modules && npm run bootstrap",
     "prepare": "husky install",
     "gen:icon": "esno ./build/generate/icon/index.ts",

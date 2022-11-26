@@ -1,10 +1,7 @@
-# ZhaiFanhuaBlog.Manage
+![LOGO](LOGO.png)
 
-<div style="width: 400px;margin: 0 auto;">
-        <img style="height:200px" align="center" src="LOGO.png" />
-</div>
 
-This is a frontend management repository for Vue3 based blog projects.
+基于Vue3的博客后台管理项目。
 
 [贡献代码](CONTRIBUTING.md)
 
